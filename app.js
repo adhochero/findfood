@@ -114,8 +114,8 @@ function updateDistance() {
         let distance = calculateDistance(userLat, userLng, targetLat, targetLng);
         let distanceMiles = distance / 1609.34; // Convert meters to miles
         
-        document.getElementById("distance").textContent = 
-            distanceMiles > 0.1 ? distanceMiles.toFixed(2) + " miles" : (distance * 3.28084).toFixed(0) + " feet";
+        //document.getElementById("distance").textContent = 
+        //    distanceMiles > 0.1 ? distanceMiles.toFixed(2) + " miles" : (distance * 3.28084).toFixed(0) + " feet";
     }
 }
 
@@ -133,9 +133,9 @@ function calculateBearing(lat1, lon1, lat2, lon2) {
 function updateCompass(heading) {
     if (userLat !== undefined && userLng !== undefined) {
         let targetBearing = calculateBearing(userLat, userLng, targetLat, targetLng);
-        let compass = document.getElementById("compass");
+        //let compass = document.getElementById("compass");
         let rotation = targetBearing - heading;
-        compass.style.transform = `rotate(${rotation}deg)`;
+        //compass.style.transform = `rotate(${rotation}deg)`;
     }
 }
 
@@ -143,10 +143,10 @@ function updateCompass(heading) {
 window.addEventListener("deviceorientationabsolute", (event) => {
     let heading = event.alpha; // Alpha represents compass direction
     if (heading !== null) {
-        document.getElementById("device-heading").textContent = `${Math.round(heading)}°`;
+        //document.getElementById("device-heading").textContent = `${Math.round(heading)}°`;
         updateCompass(heading);
     } else {
-        document.getElementById("device-heading").textContent = "Not Supported";
+        //document.getElementById("device-heading").textContent = "Not Supported";
     }
 });
 
