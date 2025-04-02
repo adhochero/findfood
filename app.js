@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('resize', updateCompassPosition);
 
-    document.addEventListener('mousedown', () => {
+    document.addEventListener('pointerdown', () => {
         closeCompass();
     });
 
-    document.addEventListener('mouseup', () => {
+    document.addEventListener('pointerup', () => {
         setTimeout(openCompass, 100);
     });
 
