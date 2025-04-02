@@ -65,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCompassPosition();
 
 
+    
     const lat = 37.11808186876309;
     const long = -113.50143589183372;
 
@@ -75,7 +76,27 @@ document.addEventListener('DOMContentLoaded', () => {
     L.marker([lat, long]).addTo(map);
 
 
+
+    window.onresize = adjustCardSize;
+
+    function adjustCardSize() {
+        const card = document.getElementById('card');
+        const ratio = { x: 2, y: 3 };
+        // Calculate the scale based on the width and height
+        let scaleX = window.innerWidth / ratio.x;
+        let scaleY = window.innerHeight / ratio.y;
+    
+        // Use the smaller scale to ensure the canvas stays within the bounds
+        let scale = Math.min(scaleX, scaleY) * 0.8; // * veiwport %
+    
+        // Apply the scale to the canvas element
+        card.style.width = ratio.x * scale + 'px';
+        card.style.height = ratio.y * scale + 'px';
+    }
+
+    adjustCardSize();
 });
+
 
 
 let targetLat = 37.11808186876309, targetLng = -113.50143589183372;
